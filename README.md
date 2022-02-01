@@ -25,3 +25,5 @@ You can load metrics data to BigQuery like following command.
 ```
 bq --project_id=my-project load --replace --source_format=NEWLINE_DELIMITED_JSON --encoding=UTF-8 my_dataset.my_table out.json schema.json
 ```
+
+![](https://cdn-ak.f.st-hatena.com/images/fotolife/s/syou6162/20220201/20220201113032.png)
