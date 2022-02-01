@@ -15,6 +15,7 @@ import (
 )
 
 type KeyValue struct {
+	Type  string `json:"type"`
 	Key   string `json:"key"`
 	Value string `json:"value"`
 }
@@ -25,10 +26,10 @@ type Point struct {
 	Value     float64    `json:"value"`
 }
 
-func convertKeyValuePairs(labels map[string]string) []KeyValue {
+func convertKeyValuePairs(labels map[string]string, _type string) []KeyValue {
 	kvs := make([]KeyValue, 0)
 	for k, v := range labels {
-		kvs = append(kvs, KeyValue{Key: k, Value: v})
+		kvs = append(kvs, KeyValue{Type: _type, Key: k, Value: v})
 	}
 	return kvs
 }
@@ -70,7 +71,11 @@ func readAndPrintTimeSeriesFields(
 		if err != nil {
 			return fmt.Errorf("could not read time series value: %v", err)
 		}
-		labels := convertKeyValuePairs(resp.GetMetric().GetLabels())
+
+		labels := make([]KeyValue, 0)
+		labels = append(labels, convertKeyValuePairs(resp.GetResource().GetLabels(), "resource")...)
+		labels = append(labels, convertKeyValuePairs(resp.GetMetric().GetLabels(), "metric")...)
+
 		points := make([]Point, 0)
 		for _, p := range resp.GetPoints() {
 			timestamp := p.GetInterval().StartTime.AsTime()
