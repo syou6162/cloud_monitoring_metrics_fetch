@@ -20,10 +20,13 @@ type KeyValue struct {
 	Value string `json:"value"`
 }
 
+type Number interface {
+}
+
 type Point struct {
 	Timestamp time.Time  `json:"timestamp"`
 	Labels    []KeyValue `json:"labels"`
-	Value     float64    `json:"value"`
+	Value     Number     `json:"value"`
 }
 
 func convertKeyValuePairs(labels map[string]string, _type string) []KeyValue {
@@ -78,8 +81,16 @@ func readAndPrintTimeSeriesFields(
 
 		points := make([]Point, 0)
 		for _, p := range resp.GetPoints() {
+			var val Number
+			switch t := p.GetValue().GetValue().(type) {
+			case *monitoringpb.TypedValue_Int64Value:
+				val = p.GetValue().GetInt64Value()
+			case *monitoringpb.TypedValue_DoubleValue:
+				val = p.GetValue().GetDoubleValue()
+			default:
+				return fmt.Errorf("Not supported metric type: %s", t)
+			}
 			timestamp := p.GetInterval().StartTime.AsTime()
-			val := p.GetValue().GetDoubleValue()
 			points = append(points, Point{Timestamp: timestamp, Labels: labels, Value: val})
 		}
 
