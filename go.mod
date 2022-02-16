@@ -6,5 +6,5 @@ require (
 	cloud.google.com/go/monitoring v1.2.0
 	github.com/golang/protobuf v1.5.2
 	google.golang.org/api v0.67.0
-	google.golang.org/genproto v0.0.0-20220204002441-d6cc3cc0770e
+	google.golang.org/genproto v0.0.0-20220216160803-4663080d8bc8
 )
