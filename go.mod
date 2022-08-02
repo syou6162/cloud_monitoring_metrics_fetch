@@ -1,6 +1,6 @@
 module github.com/syou6162/cloud_monitoring_metrics_fetch
 
-go 1.16
+go 1.19
 
 require (
 	cloud.google.com/go/monitoring v1.5.0
