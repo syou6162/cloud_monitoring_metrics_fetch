@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/monitoring v1.5.0
 	github.com/golang/protobuf v1.5.2
 	google.golang.org/api v0.91.0
-	google.golang.org/genproto v0.0.0-20220805133916-01dd62135a58
+	google.golang.org/genproto v0.0.0-20220812140447-cec7f5303424
 )
 
 require (
@@ -22,5 +22,5 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/grpc v1.48.0 // indirect
-	google.golang.org/protobuf v1.28.0 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 )
