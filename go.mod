@@ -2,7 +2,7 @@ module github.com/syou6162/cloud_monitoring_metrics_fetch
 
 go 1.21
 
-toolchain go1.23.0
+toolchain go1.24.3
 
 require (
 	cloud.google.com/go/monitoring v1.22.0
