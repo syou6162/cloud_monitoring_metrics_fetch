@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	cloud.google.com/go/monitoring v1.24.2
 	github.com/golang/protobuf v1.5.4
-	google.golang.org/api v0.234.0
+	google.golang.org/api v0.235.0
 	google.golang.org/genproto v0.0.0-20250528174236-200df99c418a
 )
 
