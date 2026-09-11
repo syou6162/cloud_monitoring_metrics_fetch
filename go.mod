@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/monitoring v1.24.2
 	github.com/golang/protobuf v1.5.4
 	google.golang.org/api v0.240.0
-	google.golang.org/genproto v0.0.0-20250721164621-a45f3dfb1074
+	google.golang.org/genproto v0.0.0-20260911204522-f61a6ca850bd
 )
 
 require (
