@@ -3,7 +3,7 @@ module github.com/syou6162/cloud_monitoring_metrics_fetch
 go 1.23.0
 
 require (
-	cloud.google.com/go/monitoring v1.24.2
+	cloud.google.com/go/monitoring v1.32.1
 	github.com/golang/protobuf v1.5.4
 	google.golang.org/api v0.240.0
 	google.golang.org/genproto v0.0.0-20250721164621-a45f3dfb1074
